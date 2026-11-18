@@ -1,4 +1,4 @@
-# Python - historical Auctionet data
+# Python – historical auction data
 
 This folder documents how a historical dataset of **58,396 ended auctions** from
 [auctionet.com](https://auctionet.com) was collected, enriched and validated.
@@ -39,8 +39,8 @@ Shared scraping functions are in `src/auctionet_scraping.py`.
 Search pages do not include categories, so each item page has to be visited. To avoid
 unnecessary requests:
 
-- 9,012 items already had a category in the existing Snowflake data (dbt model
-  `stg_auctionet_ended`) and were not fetched again.
+- 9,012 items already had a category in data previously exported from Snowflake
+  and were not fetched again.
 - Every attempted item is logged, so no page is requested twice.
 - Batches are spread across all end dates, so a partial run still covers the whole period.
 - Requests are spaced 1–2 seconds apart, and the run stops on HTTP 403/429/5xx.
@@ -106,8 +106,8 @@ python 02_enrich_categories.py 1000        # one enrichment batch (repeat until 
 python 03_build_final_dataset.py           # validate + export
 ```
 
-Step 2 expects `data/auctionet_existing_categories.csv`, an export of item categories
-that already existed in Snowflake, from the dbt model `stg_auctionet_ended` (columns `item_id`, `main_category_id`,
+Step 2 expects `data/auctionet_existing_categories.csv`, a file of existing item
+categories previously exported from Snowflake (columns `item_id`, `main_category_id`,
 `main_category_name`, `subcategory_id`, `subcategory_name`).
 
 All generated files go to `python/data/`, which is not committed to the repository.
