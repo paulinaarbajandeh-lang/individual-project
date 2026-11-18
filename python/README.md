@@ -1,4 +1,4 @@
-# Python – historical auction data
+# Python - historical Auctionet data
 
 This folder documents how a historical dataset of **58,396 ended auctions** from
 [auctionet.com](https://auctionet.com) was collected, enriched and validated.
