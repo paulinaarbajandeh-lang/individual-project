@@ -10,7 +10,7 @@ The pipeline follows this structure:
 
 **Auctionet API → Azure Data Factory → Azure Blob Storage → Snowflake → dbt → Power BI**
 
-Snowpipe supports automated ingestion of active auction data through Azure event notifications. Historical auction data is also stored in Snowflake and used to enrich the prioritisation model with category- and auction-house-level performance.
+Snowpipe supports automated ingestion of active auction data through Azure event notifications. Historical auction data is also stored in Snowflake and used to enrich the prioritisation model with category- and auction-house-level performance. This data was collected separately with Python (see [`python/`](../python/)) and imported once; it is not part of the automated pipeline.
 
 ## SQL Files
 
@@ -19,7 +19,7 @@ Snowpipe supports automated ingestion of active auction data through Azure event
 | `01_snowflake_infrastructure.sql` | Sets up the database, RAW schema, Azure storage integration, JSON file format, external stages and raw tables. |
 | `02_automated_data_ingestion.sql` | Documents the Azure notification integration and Snowpipe configuration for automated ingestion of paginated auction data. |
 | `03_category_data_ingestion.sql` | Defines the stage, raw table and loading process for Auctionet category data. |
-| `04_historical_auction_ingestion.sql` | Planned documentation of the final historical auction data ingestion process. |
+| `04_historical_auction_ingestion.sql` | Documents the one-off import of 58,396 historical auctions: validation, backup, table replacement with `SWAP WITH` and verification after the dbt build. |
 | `05_data_quality_and_model_evaluation.sql` | Contains checks for data quality, historical coverage, score components, ranking comparisons and weight sensitivity. |
 
 ## Data Quality and Model Evaluation
