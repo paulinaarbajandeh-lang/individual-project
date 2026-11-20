@@ -3,9 +3,9 @@
   "name": "45fe4bfc6ba637a3c85d",
   "position": {
     "x": 0,
-    "y": 65.573770491803273,
+    "y": 123.21428571428571,
     "z": 0,
-    "height": 435.91457583898733,
+    "height": 401.2932015846273,
     "width": 1919.9125722872366,
     "tabOrder": 0
   },
@@ -165,8 +165,8 @@
                 }
               },
               "queryRef": "Sum(FCT_ACTIVE_ITEM_PRIORITISATION.CATEGORY_ENDED_ITEMS)",
-              "nativeQueryRef": "Historical Category Sales",
-              "displayName": "Historical Category Sales",
+              "nativeQueryRef": "Category Auctions (n)",
+              "displayName": "Category Auctions (n)",
               "format": "0"
             },
             {
@@ -181,8 +181,8 @@
                 }
               },
               "queryRef": "Sum(FCT_ACTIVE_ITEM_PRIORITISATION.HOUSE_ENDED_ITEMS)",
-              "nativeQueryRef": "Historical House Sales",
-              "displayName": "Historical House Sales",
+              "nativeQueryRef": "House Auctions (n)",
+              "displayName": "House Auctions (n)",
               "format": "0"
             },
             {
@@ -592,6 +592,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Top 10 - Next-Day Placement Candidates'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
                 }
               }
             }

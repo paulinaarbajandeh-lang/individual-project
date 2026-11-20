@@ -345,7 +345,7 @@ table FCT_ACTIVE_ITEM_PRIORITISATION
 
 	column ENDS_AT_STOCKHOLM
 		dataType: dateTime
-		formatString: yyyy-mm-dd "kl "h:nn
+		formatString: yyyy-mm-dd hh:nn
 		sourceProviderType: datetime2
 		lineageTag: 64eef610-3e58-4d69-bb91-375872b8832f
 		summarizeBy: none
@@ -357,7 +357,7 @@ table FCT_ACTIVE_ITEM_PRIORITISATION
 
 	column PUBLISHED_AT_STOCKHOLM
 		dataType: dateTime
-		formatString: yyyy-mm-dd "kl "h:nn
+		formatString: yyyy-mm-dd h:nn
 		sourceProviderType: datetime2
 		lineageTag: 3114c429-08e3-4500-a26e-80b229636529
 		summarizeBy: none

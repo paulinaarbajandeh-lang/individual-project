@@ -490,6 +490,16 @@ cultureInfo sv-SE
 			      "State": "Generated",
 			      "Terms": [
 			        {
+			          "Category Auctions (n)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
 			          "Historical Category Sales": {
 			            "State": "Suggested",
 			            "Source": {
@@ -510,6 +520,16 @@ cultureInfo sv-SE
 			      },
 			      "State": "Generated",
 			      "Terms": [
+			        {
+			          "House Auctions (n)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
 			        {
 			          "Historical House Sales": {
 			            "State": "Suggested",

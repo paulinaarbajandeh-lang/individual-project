@@ -3,10 +3,10 @@
   "name": "b05fb2e821790b9698d4",
   "position": {
     "x": 0,
-    "y": 501.63934426229508,
+    "y": 525,
     "z": 1000,
-    "height": 575.40983606557381,
-    "width": 795.08196721311481,
+    "height": 551.78571428571422,
+    "width": 794.64285714285711,
     "tabOrder": 1000
   },
   "visual": {
@@ -258,6 +258,13 @@
                   "Value": "'Priority Score'"
                 }
               }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "3L"
+                }
+              }
             }
           }
         }
@@ -271,6 +278,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Current Bids vs Priority Score'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
                 }
               }
             }

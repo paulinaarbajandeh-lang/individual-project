@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "eb0810bf32ba937d6b22",
   "position": {
-    "x": 0,
-    "y": 0,
+    "x": 1080.3571428571427,
+    "y": 39.285714285714285,
     "z": 2000,
     "height": 70.175438596491233,
     "width": 300,
@@ -52,6 +52,21 @@
       "general": [
         {
           "properties": {}
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
         }
       ]
     },

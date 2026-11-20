@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "d3d3515ba20430707530",
   "position": {
-    "x": 0,
-    "y": 222.95081967213116,
+    "x": 7.0175438596491233,
+    "y": 291.22807017543863,
     "z": 0,
-    "height": 418.03278688524591,
-    "width": 1919.672131147541,
+    "height": 501.75438596491233,
+    "width": 1905.2631578947371,
     "tabOrder": 0
   },
   "visual": {
@@ -151,6 +151,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Priority Score Breakdown - Worked Example'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
                 }
               }
             }

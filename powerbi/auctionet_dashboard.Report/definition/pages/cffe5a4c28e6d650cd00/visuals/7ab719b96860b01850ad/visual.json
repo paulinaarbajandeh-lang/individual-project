@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "7ab719b96860b01850ad",
   "position": {
-    "x": 0,
-    "y": 42.622950819672134,
+    "x": 7.0175438596491233,
+    "y": 94.736842105263165,
     "z": 1000,
-    "height": 180.32786885245903,
-    "width": 1919.672131147541,
+    "height": 196.49122807017545,
+    "width": 1905.2631578947371,
     "tabOrder": 1000
   },
   "visual": {
@@ -165,8 +165,8 @@
                 }
               },
               "queryRef": "Sum(FCT_ACTIVE_ITEM_PRIORITISATION.CATEGORY_ENDED_ITEMS)",
-              "nativeQueryRef": "Historical Category Sales",
-              "displayName": "Historical Category Sales",
+              "nativeQueryRef": "Category Auctions (n)",
+              "displayName": "Category Auctions (n)",
               "format": "0"
             },
             {
@@ -181,8 +181,8 @@
                 }
               },
               "queryRef": "Sum(FCT_ACTIVE_ITEM_PRIORITISATION.HOUSE_ENDED_ITEMS)",
-              "nativeQueryRef": "Historical House Sales",
-              "displayName": "Historical House Sales",
+              "nativeQueryRef": "House Auctions (n)",
+              "displayName": "House Auctions (n)",
               "format": "0"
             },
             {
@@ -483,7 +483,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "195.12503554033555D"
+                  "Value": "181.09862266469148D"
                 }
               }
             }
@@ -591,7 +591,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Top 10 - Next-Day Placement Candidates'"
+                  "Value": "'Highest-ranked Item(s)'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
                 }
               }
             }

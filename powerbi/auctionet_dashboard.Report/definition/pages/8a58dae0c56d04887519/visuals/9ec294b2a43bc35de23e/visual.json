@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "9ec294b2a43bc35de23e",
   "position": {
-    "x": 795.08196721311481,
-    "y": 772.13114754098365,
+    "x": 794.64285714285711,
+    "y": 769.64285714285711,
     "z": 3000,
-    "height": 308.19672131147541,
-    "width": 1122.9508196721313,
+    "height": 310.71428571428567,
+    "width": 1123.2142857142856,
     "tabOrder": 3000
   },
   "visual": {
@@ -229,6 +229,13 @@
                   "Value": "true"
                 }
               }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
             }
           }
         }
@@ -239,7 +246,39 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Historical performance of the categories and houses in each group, not the outcome of these items  '"
+                }
+              }
+            },
+            "italic": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#6B7280'"
+                    }
+                  }
                 }
               }
             }

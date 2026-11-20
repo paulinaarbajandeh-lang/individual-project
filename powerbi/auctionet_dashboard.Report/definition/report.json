@@ -11,13 +11,13 @@
       "type": "SharedResources"
     },
     "customTheme": {
-      "name": "Frontier",
+      "name": "Auctionet_Prioritisation4756296529641352.json",
       "reportVersionAtImport": {
         "visual": "2.14.0",
         "report": "3.4.0",
         "page": "2.3.1"
       },
-      "type": "SharedResources"
+      "type": "RegisteredResources"
     }
   },
   "objects": {
@@ -57,10 +57,16 @@
           "name": "Fluent2-CY26SU10",
           "path": "BaseThemes/Fluent2-CY26SU10.json",
           "type": "BaseTheme"
-        },
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
         {
-          "name": "Frontier",
-          "path": "BuiltInThemes/Frontier.json",
+          "name": "Auctionet_Prioritisation4756296529641352.json",
+          "path": "Auctionet_Prioritisation4756296529641352.json",
           "type": "CustomTheme"
         }
       ]

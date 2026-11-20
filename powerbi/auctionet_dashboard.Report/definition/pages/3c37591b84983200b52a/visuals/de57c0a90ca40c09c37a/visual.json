@@ -3,9 +3,9 @@
   "name": "de57c0a90ca40c09c37a",
   "position": {
     "x": 0,
-    "y": 591.22807017543869,
+    "y": 589.47368421052636,
     "z": 1000,
-    "height": 489.47368421052636,
+    "height": 491.22807017543863,
     "width": 1919.2982456140353,
     "tabOrder": 1000
   },
@@ -293,6 +293,19 @@
             }
           }
         }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "secStart": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -302,7 +315,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Historical Auction House Performance & Sample Size'"
+                  "Value": "'Historical Auction House Performance & Sample Size (Top 15 by n)'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
                 }
               }
             }
