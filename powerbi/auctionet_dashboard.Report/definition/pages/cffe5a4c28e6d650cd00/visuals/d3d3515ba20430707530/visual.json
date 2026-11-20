@@ -3,11 +3,11 @@
   "name": "d3d3515ba20430707530",
   "position": {
     "x": 0,
-    "y": 212.28070175438597,
-    "z": 1000,
-    "height": 418.60388871180731,
-    "width": 959.95628614361829,
-    "tabOrder": 1000
+    "y": 222.95081967213116,
+    "z": 0,
+    "height": 418.03278688524591,
+    "width": 1919.672131147541,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "barChart",
@@ -275,48 +275,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "5075e980017903d10772",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FCT_ACTIVE_ITEM_PRIORITISATION"
-              }
-            },
-            "Property": "Engagement Contribution"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "608ffd11e9969eedd178",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FCT_ACTIVE_ITEM_PRIORITISATION"
-              }
-            },
-            "Property": "Category Contribution"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "f0fda0be04b4170d16b4",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FCT_ACTIVE_ITEM_PRIORITISATION"
-              }
-            },
-            "Property": "House Contribution"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

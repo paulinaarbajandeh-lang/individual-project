@@ -281,7 +281,7 @@ cultureInfo sv-SE
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Model Priority Rank": {
+			          "Overall Model Priority Rank": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -291,7 +291,7 @@ cultureInfo sv-SE
 			          }
 			        },
 			        {
-			          "Priority Rank": {
+			          "Model Priority Rank": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -372,16 +372,6 @@ cultureInfo sv-SE
 			            },
 			            "Weight": 0.9
 			          }
-			        },
-			        {
-			          "Priority Score": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -438,16 +428,6 @@ cultureInfo sv-SE
 			      "Terms": [
 			        {
 			          "Current Bid Count Rank": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "Bid Count Rank": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
