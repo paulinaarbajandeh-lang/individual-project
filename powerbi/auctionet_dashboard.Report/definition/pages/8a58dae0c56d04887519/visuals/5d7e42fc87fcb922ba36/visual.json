@@ -1,0 +1,60 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "5d7e42fc87fcb922ba36",
+  "position": {
+    "x": 300,
+    "y": 0,
+    "z": 5000,
+    "height": 85.964912280701768,
+    "width": 533.33333333333337,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FCT_ACTIVE_ITEM_PRIORITISATION"
+                    }
+                  },
+                  "Property": "AUCTION_HOUSE"
+                }
+              },
+              "queryRef": "FCT_ACTIVE_ITEM_PRIORITISATION.AUCTION_HOUSE",
+              "nativeQueryRef": "Auction House",
+              "active": true,
+              "displayName": "Auction House"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

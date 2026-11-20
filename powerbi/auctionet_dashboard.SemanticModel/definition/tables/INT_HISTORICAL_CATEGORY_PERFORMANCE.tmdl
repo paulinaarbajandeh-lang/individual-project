@@ -5,7 +5,7 @@ table INT_HISTORICAL_CATEGORY_PERFORMANCE
 		dataType: double
 		sourceProviderType: decimal(38, 0)
 		lineageTag: abd7388c-cff8-4434-a7c8-620fe1d33647
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: MAIN_CATEGORY_ID
 
 		annotation SummarizationSetBy = Automatic
@@ -23,6 +23,7 @@ table INT_HISTORICAL_CATEGORY_PERFORMANCE
 
 	column ENDED_ITEMS
 		dataType: double
+		formatString: 0
 		sourceProviderType: decimal(18, 0)
 		lineageTag: e71af464-0141-4f27-8c5c-aa926daae737
 		summarizeBy: sum
@@ -30,7 +31,7 @@ table INT_HISTORICAL_CATEGORY_PERFORMANCE
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"isDecimal":true}
 
 	column AVG_BID_COUNT
 		dataType: double

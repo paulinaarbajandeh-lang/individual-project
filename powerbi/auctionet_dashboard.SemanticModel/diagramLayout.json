@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 66.2768046061198,
+        "x": 0,
         "y": 0
       },
       "nodes": [
@@ -19,7 +19,7 @@
             "height": 185.00612244897957,
             "width": 234
           },
-          "zIndex": 1
+          "zIndex": 6
         },
         {
           "location": {
@@ -32,7 +32,7 @@
             "height": 286,
             "width": 234
           },
-          "zIndex": 3
+          "zIndex": 8
         },
         {
           "location": {
@@ -45,7 +45,7 @@
             "height": 754.61224489795916,
             "width": 234
           },
-          "zIndex": 2
+          "zIndex": 7
         },
         {
           "location": {
@@ -58,7 +58,7 @@
             "height": 183.3346938775511,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 1
         },
         {
           "location": {
@@ -71,20 +71,20 @@
             "height": 556.38163265306116,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 2
         },
         {
           "location": {
             "x": 847.97159022024641,
-            "y": 2.4448979591836739
+            "y": 0
           },
           "nodeIndex": "FCT_ACTIVE_ITEM_PRIORITISATION",
           "nodeLineageTag": "954557a8-20be-4022-ba02-b890a0ccc35b",
           "size": {
-            "height": 781.46428571428578,
+            "height": 843.63140589569161,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 9
         },
         {
           "location": {
@@ -97,7 +97,7 @@
             "height": 152,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 3
         },
         {
           "location": {
@@ -108,9 +108,9 @@
           "nodeLineageTag": "5ad306f5-78de-40d2-8b54-9de0a4475114",
           "size": {
             "height": 298.38888888888891,
-            "width": 234
+            "width": 259
           },
-          "zIndex": 0
+          "zIndex": 4
         },
         {
           "location": {
@@ -123,7 +123,7 @@
             "height": 295.61111111111109,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 5
         }
       ],
       "name": "Alla tabeller",

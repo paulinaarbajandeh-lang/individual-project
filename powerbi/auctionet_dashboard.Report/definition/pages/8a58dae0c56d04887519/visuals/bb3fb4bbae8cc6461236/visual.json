@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "bb3fb4bbae8cc6461236",
   "position": {
-    "x": 959.95628614361829,
-    "y": 461.09375711488548,
+    "x": 794.73684210526324,
+    "y": 521.0526315789474,
     "z": 2000,
-    "height": 169.95947361231273,
-    "width": 958.38258731387464,
+    "height": 259.64912280701759,
+    "width": 1122.8070175438597,
     "tabOrder": 2000
   },
   "visual": {
@@ -106,7 +106,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Top 100 Ranking Comparison'"
+                  "Value": "'Top 100 Selection - Priority Model vs Bid Count Ranking'"
                 }
               }
             }

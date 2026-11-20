@@ -3,10 +3,10 @@
   "name": "45d524fc1ad9a1770deb",
   "position": {
     "x": 0,
-    "y": 0,
+    "y": 70.175438596491233,
     "z": 0,
-    "height": 581.17437087274675,
-    "width": 1918.9719792968051,
+    "height": 521.0526315789474,
+    "width": 1919.2982456140353,
     "tabOrder": 0
   },
   "visual": {
@@ -20,16 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "INT_HISTORICAL_CATEGORY_PERFORMANCE"
+                      "Entity": "DIM_CATEGORIES"
                     }
                   },
-                  "Property": "MAIN_CATEGORY_NAME"
+                  "Property": "CATEGORY_NAME"
                 }
               },
-              "queryRef": "INT_HISTORICAL_CATEGORY_PERFORMANCE.MAIN_CATEGORY_NAME",
-              "nativeQueryRef": "Category:",
-              "active": true,
-              "displayName": "Category:"
+              "queryRef": "DIM_CATEGORIES.CATEGORY_NAME",
+              "nativeQueryRef": "CATEGORY_NAME",
+              "active": true
             }
           ]
         },
@@ -206,6 +205,13 @@
                       "Percent": 0.6
                     }
                   }
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }

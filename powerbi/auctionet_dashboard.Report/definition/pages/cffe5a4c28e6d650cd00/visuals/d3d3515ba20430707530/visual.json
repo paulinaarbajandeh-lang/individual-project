@@ -3,10 +3,10 @@
   "name": "d3d3515ba20430707530",
   "position": {
     "x": 0,
-    "y": 168.38577478256911,
+    "y": 212.28070175438597,
     "z": 1000,
     "height": 418.60388871180731,
-    "width": 778.9809207231001,
+    "width": 959.95628614361829,
     "tabOrder": 1000
   },
   "visual": {
@@ -277,7 +277,7 @@
         }
       },
       {
-        "name": "a6db03db35601d15cb0a",
+        "name": "5075e980017903d10772",
         "field": {
           "Measure": {
             "Expression": {
@@ -291,7 +291,7 @@
         "type": "Advanced"
       },
       {
-        "name": "d61b43b410b86dddab4d",
+        "name": "608ffd11e9969eedd178",
         "field": {
           "Measure": {
             "Expression": {
@@ -305,7 +305,7 @@
         "type": "Advanced"
       },
       {
-        "name": "2549c9d65e65ed7aae00",
+        "name": "f0fda0be04b4170d16b4",
         "field": {
           "Measure": {
             "Expression": {
@@ -317,89 +317,6 @@
           }
         },
         "type": "Advanced"
-      },
-      {
-        "name": "28253b9cc3482e15d59e",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FCT_ACTIVE_ITEM_PRIORITISATION"
-              }
-            },
-            "Property": "ENDS_AT"
-          }
-        },
-        "type": "RelativeDate",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "f",
-              "Entity": "FCT_ACTIVE_ITEM_PRIORITISATION",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Between": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Source": "f"
-                        }
-                      },
-                      "Property": "ENDS_AT"
-                    }
-                  },
-                  "LowerBound": {
-                    "DateSpan": {
-                      "Expression": {
-                        "DateAdd": {
-                          "Expression": {
-                            "Now": {}
-                          },
-                          "Amount": 1,
-                          "TimeUnit": 0
-                        }
-                      },
-                      "TimeUnit": 0
-                    }
-                  },
-                  "UpperBound": {
-                    "DateSpan": {
-                      "Expression": {
-                        "DateAdd": {
-                          "Expression": {
-                            "DateAdd": {
-                              "Expression": {
-                                "DateAdd": {
-                                  "Expression": {
-                                    "Now": {}
-                                  },
-                                  "Amount": 1,
-                                  "TimeUnit": 0
-                                }
-                              },
-                              "Amount": -1,
-                              "TimeUnit": 0
-                            }
-                          },
-                          "Amount": 1,
-                          "TimeUnit": 0
-                        }
-                      },
-                      "TimeUnit": 0
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "User"
       }
     ]
   }

@@ -5,6 +5,12 @@
   "displayOption": "FitToPage",
   "height": 1080,
   "width": 1920,
+  "pageBinding": {
+    "name": "86f82f35be041a9d84ab",
+    "type": "Default",
+    "parameters": [],
+    "acceptsFilterContext": "None"
+  },
   "objects": {
     "outspacePane": [
       {
@@ -19,5 +25,12 @@
         }
       }
     ]
-  }
+  },
+  "visualInteractions": [
+    {
+      "source": "d9e22713963f1c3ae94b",
+      "target": "5d7e42fc87fcb922ba36",
+      "type": "DataFilter"
+    }
+  ]
 }
