@@ -9,10 +9,7 @@ sources:
         description: "Raw paginated JSON data ingested from Azure"
 
       - name: raw_auctionet_categories
-        description: "Raw Auctionet category hierarchy ingested from Azure"
-
-      - name: raw_auctionet_ended
-        description: "Historical ended auction data scraped from Auctionet's public ended-auctions pages"
+        description: "Raw Auctionet category hierarchy ingested from Azure" 
 
       - name: raw_auctionet_ended_enriched
         description: "Enriched historical ended-auction snapshot with auction house and category attributes."
