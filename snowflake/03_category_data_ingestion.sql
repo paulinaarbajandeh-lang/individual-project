@@ -37,7 +37,9 @@ CREATE TABLE IF NOT EXISTS DBT_AUCTIONET.RAW.RAW_AUCTIONET_CATEGORIES (
 -- Read category JSON files from Azure Blob Storage and load them into the raw Snowflake table
 -- This COPY INTO statement is intended for initial or manual ingestion of category data
 -- Categories change rarely, so they are loaded manually rather than with Snowpipe
--- COPY INTO skips files that have already been loaded, so re-running it does not create duplicates
+-- ADF overwrites categories.json on each run, so Snowflake treats it as a new file
+-- To reload categories, truncate the table first to avoid duplicate rows:
+-- TRUNCATE TABLE DBT_AUCTIONET.RAW.RAW_AUCTIONET_CATEGORIES;
 
 COPY INTO DBT_AUCTIONET.RAW.RAW_AUCTIONET_CATEGORIES
     (JSON_DATA, FILE_PATH)
