@@ -16,8 +16,8 @@ Snowpipe supports automated ingestion of active auction data through Azure event
 
 | File | Description |
 |---|---|
-| `01_snowflake_infrastructure.sql` | Sets up the database, RAW schema, Azure storage integration, JSON file format, external stages and raw tables. |
-| `02_automated_data_ingestion.sql` | Documents the Azure notification integration and Snowpipe configuration for automated ingestion of paginated auction data. |
+| `01_snowflake_infrastructure.sql` | Sets up the database, RAW schema, Azure storage integration, JSON file format, the external stage and raw table for active auction data, and key-pair authentication. |
+| `02_automated_data_ingestion.sql` | Documents the Azure notification integration, Snowpipe configuration and a status check for automated ingestion of paginated auction data. |
 | `03_category_data_ingestion.sql` | Defines the stage, raw table and loading process for Auctionet category data. |
 | `04_historical_auction_ingestion.sql` | Documents the one-off import of 58,396 historical auctions: validation, backup, table replacement with `SWAP WITH` and verification after the dbt build. |
 | `05_data_quality_and_model_evaluation.sql` | Contains checks for data quality, historical coverage, score components, ranking comparisons and weight sensitivity. |
@@ -31,7 +31,7 @@ The SQL checks support the evaluation of the rule-based prioritisation model by 
 - The distribution and components of prioritisation scores.
 - Differences between model-based and bid-count-based rankings.
 - Top 100 overlap under alternative weighting scenarios.
-- Next-day Top 10 selection and raw data freshness.
+- Top 10 selection for upcoming items and raw data freshness.
 
 The weighting scenarios compared are **50/25/25**, **60/20/20** and **40/30/30**, representing the relative importance of bidder engagement, historical category performance and historical auction-house performance.
 
@@ -41,6 +41,6 @@ These comparisons assess how the recommended selection changes under different a
 
 The SQL scripts are provided for documentation and reproducibility. Environment-specific Azure identifiers have been replaced with placeholders in the public repository. Some scripts contain setup statements and should not be executed against an existing environment without review.
 
-The `archive/` folder, if present, contains scripts from an earlier development environment. These are retained for reference and are not part of the current pipeline.
+The `archive/` folder contains scripts from an earlier development environment. These are retained for reference and are not part of the current pipeline.
 
 dbt transformations are maintained separately in the [`dbt/`](../dbt/) folder.

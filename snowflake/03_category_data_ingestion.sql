@@ -1,3 +1,6 @@
+-- 03 Category data ingestion
+-- Stage, raw table and manual load of Auctionet category data
+
 -- 1. SELECT DATABASE AND SCHEMA
 -- Category data is stored in the RAW schema before being cleaned and transformed by dbt
 
@@ -33,6 +36,10 @@ CREATE TABLE IF NOT EXISTS DBT_AUCTIONET.RAW.RAW_AUCTIONET_CATEGORIES (
 -- 4. LOAD CATEGORY DATA
 -- Read category JSON files from Azure Blob Storage and load them into the raw Snowflake table
 -- This COPY INTO statement is intended for initial or manual ingestion of category data
+-- Categories change rarely, so they are loaded manually rather than with Snowpipe
+-- ADF overwrites categories.json on each run, so Snowflake treats it as a new file
+-- To reload categories, truncate the table first to avoid duplicate rows:
+-- TRUNCATE TABLE DBT_AUCTIONET.RAW.RAW_AUCTIONET_CATEGORIES;
 
 COPY INTO DBT_AUCTIONET.RAW.RAW_AUCTIONET_CATEGORIES
     (JSON_DATA, FILE_PATH)

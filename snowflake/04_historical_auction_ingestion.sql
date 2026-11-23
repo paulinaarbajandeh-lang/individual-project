@@ -1,18 +1,16 @@
--- Historical auction data ingestion and validation
+-- 04 Historical auction ingestion
+-- Import, validation and replacement of the historical auction dataset
 -- Source: auctionet_historical_30days_final.csv
 -- Period: 12 October – 10 November 2026
---
 -- The enriched CSV was imported into a separate validation table before replacing the existing historical raw dataset
 
 
--- 1. Import historical auction data
+-- 1. Import and validate historical auction data
 -- The enriched CSV was exported from the Python notebook and uploaded using Snowflake's Table and From File interface
 --
 -- Source file: auctionet_historical_30days_final.csv
 -- Destination: DBT_AUCTIONET.RAW.RAW_AUCTIONET_ENDED_ENRICHED_VALIDATION_20261113
 -- Imported records: 58,396
---
--- The file upload was performed through the Snowflake UI
 
 SELECT
     COUNT(*) AS total_rows,

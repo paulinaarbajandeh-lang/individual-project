@@ -1,5 +1,4 @@
-# Individual Project
-# Auctionet Marketplace Prioritisation
+# Individual Project: Data-Driven Marketplace Prioritisation at Auctionet
 
 ## Project Overview
 
@@ -71,7 +70,7 @@ The report uses DirectQuery to Snowflake, so it cannot be refreshed without data
 ## How to Review the Project
 
 1. Review the prioritisation model in `dbt/models/intermediate/`.
-2. Explore the Power BI dashboards or their exported screenshots.
+2. Explore the Power BI dashboards or the exported PDF in `powerbi/`.
 3. Refer to the Project Report for the methodology, design decisions, findings and limitations.
 
 ## Limitations

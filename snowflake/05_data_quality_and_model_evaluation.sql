@@ -1,4 +1,4 @@
--- Data quality and model evaluation
+-- 05 Data quality and model evaluation
 -- Check data quality, historical coverage and model performance
 -- Run queries individually. Results depend on the latest data
 
@@ -152,6 +152,7 @@ LIMIT 10;
 -- 8. TOP 100 RANKING COMPARISON
 -- Compare the model's top 100 with a ranking based on bid count
 -- Use item_id to break ties consistently
+-- ROW_NUMBER selects exactly 100 items, while the dashboard uses PRIORITISATION_RANK (RANK), so results may differ slightly if several items share the same score around rank 100
 
 WITH ranked AS (
     SELECT
@@ -197,6 +198,7 @@ ORDER BY 1;
 
 -- 9. TOP 100 OVERLAP
 -- Count items shared by both rankings and unique to each
+-- Uses the same ROW_NUMBER logic as query 8
 
 WITH ranked AS (
     SELECT
@@ -287,10 +289,11 @@ SELECT
 FROM ranked;
 
 
--- 11. NEXT-DAY TOP 10 COMPARISON
+-- 11. TOP 10 COMPARISON FOR UPCOMING ITEMS
 -- Compare the model's top 10 with a bid-count ranking
 -- Only include items ending tomorrow or later
 -- Recalculate both rankings within the eligible items
+-- Note: the dashboard Top 10 shows items ending the next day only, so results may differ
 
 WITH eligible_items AS (
     SELECT
