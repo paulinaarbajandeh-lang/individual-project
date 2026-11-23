@@ -21,7 +21,7 @@ CREATE OR REPLACE FILE FORMAT dbt_auctionet.raw.format_json_raw
 -- ==========================================
 -- Points to the raw container in Azure Blob Storage where ADF drops JSON files
 CREATE OR REPLACE STAGE dbt_auctionet.raw.azure_raw_stage
-    URL = 'azure://saauctionetassessment.blob.core.windows.net/raw/'  
+    URL = 'azure://<STORAGE_ACCOUNT>.blob.core.windows.net/raw/'
     STORAGE_INTEGRATION = azure_raw_integration
     FILE_FORMAT = dbt_auctionet.raw.format_json_raw;
 
@@ -32,7 +32,7 @@ CREATE OR REPLACE STAGE dbt_auctionet.raw.azure_raw_stage
 CREATE OR REPLACE TABLE dbt_auctionet.raw.raw_auctionet (
     json_data VARIANT,
     file_path STRING,
-    ingested_at TIMESTAMP_NTZ DEFAULT CONVERT_TIMEZONE('Europe/Stockholm', CURRENT_TIMESTAMP())::TIMESTAMP_NTZ 
+    ingested_at TIMESTAMP_NTZ DEFAULT CONVERT_TIMEZONE('Europe/Stockholm', CURRENT_TIMESTAMP())::TIMESTAMP_NTZ
 );
 
 -- ==========================================
@@ -46,7 +46,7 @@ CREATE OR REPLACE PIPE dbt_auctionet.raw.pipe_auctionet
 AS
 COPY INTO dbt_auctionet.raw.raw_auctionet (json_data, file_path)
 FROM (
-    SELECT $1, METADATA$FILENAME 
+    SELECT $1, METADATA$FILENAME
     FROM @dbt_auctionet.raw.azure_raw_stage/
 );
 
