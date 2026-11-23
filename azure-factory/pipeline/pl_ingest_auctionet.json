@@ -117,7 +117,8 @@
 										"type": "JsonWriteSettings"
 									}
 								},
-								"enableStaging": false
+								"enableStaging": false,
+								"dataIntegrationUnits": 4
 							},
 							"inputs": [
 								{
@@ -180,7 +181,8 @@
 							"type": "JsonWriteSettings"
 						}
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"dataIntegrationUnits": 4
 				},
 				"inputs": [
 					{
