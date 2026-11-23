@@ -1,3 +1,6 @@
+-- 02 Automated data ingestion
+-- Azure notification integration and Snowpipe for active auction data
+
 -- 1. AZURE NOTIFICATION INTEGRATION
 -- Connect Snowflake to an Azure Storage Queue
 -- Azure Event Grid sends notifications when new files arrive in Blob Storage
@@ -45,3 +48,11 @@ FROM (
         METADATA$FILENAME
     FROM @DBT_AUCTIONET.RAW.AZURE_PAGINATED_STAGE
 );
+
+
+
+-- 4. MONITOR SNOWPIPE
+-- Check that the pipe is running and that no files are waiting to be loaded
+-- Expected: "executionState":"RUNNING" and "pendingFileCount":0
+
+SELECT SYSTEM$PIPE_STATUS('DBT_AUCTIONET.RAW.AUCTIONET_PAGINATED_PIPE');
