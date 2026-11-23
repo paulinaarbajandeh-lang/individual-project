@@ -587,7 +587,7 @@ cultureInfo sv-SE
 			    "int_historical_category_performance.main_category_name": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "INT_HISTORICAL_CATEGORY_PERFORMANCE",
+			          "ConceptualEntity": "FCT_HISTORICAL_CATEGORY_PERFORMANCE",
 			          "ConceptualProperty": "MAIN_CATEGORY_NAME"
 			        }
 			      },
@@ -596,7 +596,7 @@ cultureInfo sv-SE
 			    "int_historical_house_performance.auction_house": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "INT_HISTORICAL_HOUSE_PERFORMANCE",
+			          "ConceptualEntity": "FCT_HISTORICAL_HOUSE_PERFORMANCE",
 			          "ConceptualProperty": "AUCTION_HOUSE"
 			        }
 			      },

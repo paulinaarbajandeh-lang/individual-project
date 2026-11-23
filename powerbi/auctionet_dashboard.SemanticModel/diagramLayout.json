@@ -104,26 +104,24 @@
             "x": 1393.9715902202465,
             "y": 255.95459183673472
           },
-          "nodeIndex": "INT_HISTORICAL_CATEGORY_PERFORMANCE",
-          "nodeLineageTag": "5ad306f5-78de-40d2-8b54-9de0a4475114",
+          "nodeIndex": "FCT_HISTORICAL_CATEGORY_PERFORMANCE",
           "size": {
             "height": 298.38888888888891,
             "width": 259
           },
-          "zIndex": 4
+          "zIndex": 0
         },
         {
           "location": {
             "x": 1677.9715902202465,
             "y": 255.95459183673472
           },
-          "nodeIndex": "INT_HISTORICAL_HOUSE_PERFORMANCE",
-          "nodeLineageTag": "a550749f-2a93-45ef-992c-7e0a61fb3a6e",
+          "nodeIndex": "FCT_HISTORICAL_HOUSE_PERFORMANCE",
           "size": {
             "height": 295.61111111111109,
             "width": 234
           },
-          "zIndex": 5
+          "zIndex": 0
         }
       ],
       "name": "Alla tabeller",
