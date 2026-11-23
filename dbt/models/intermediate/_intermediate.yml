@@ -1,0 +1,161 @@
+version: 2
+
+models:
+  - name: int_auctionet_ended_cleaned
+    description: "Cleaned historical ended auction data with SEK-normalised estimates and hammer price performance metrics."
+    columns:
+      - name: item_id
+        description: "Unique identifier for the ended auction item."
+        data_tests:
+          - unique
+          - not_null
+
+      - name: estimate_sek
+        description: "Estimated item value converted to SEK using fixed analysis FX rates."
+
+      - name: hammer_price_sek
+        description: "Displayed final/hammer price in SEK."
+        data_tests:
+          - not_null
+
+      - name: hammer_vs_estimate_sek
+        description: "Difference in SEK between hammer price and estimated value."
+
+      - name: hammer_to_estimate_ratio
+        description: "Hammer price divided by estimated value. For example, 1.20 means the item sold for 120% of estimate."
+
+      - name: hammer_vs_estimate_pct
+        description: "Percentage difference between hammer price and estimate. For example, 0.20 means 20% above estimate."
+
+      - name: sale_format
+        description: "Not populated in the current historical dataset. Kept for schema compatibility."
+
+  - name: int_historical_category_performance
+    description: >
+      Historical auction performance aggregated by main category.
+      Used to provide category-level context for active auction items.
+    columns:
+      - name: main_category_id
+        description: "Identifier for the main auction category."
+        data_tests:
+          - not_null
+
+      - name: main_category_name
+        description: "Name of the main auction category."
+
+      - name: ended_items
+        description: "Number of historical ended auction items in the category."
+
+      - name: median_bid_count
+        description: "Median number of bids for historical ended items in the category."
+
+      - name: median_hammer_vs_estimate_pct
+        description: "Median hammer-price performance relative to estimate."
+
+      - name: pct_above_estimate
+        description: "Share of historical items in the category that sold above estimate."
+
+  - name: int_historical_house_performance
+    description: >
+      Historical auction performance aggregated by auction house.
+      Used to provide auction-house-level context for active auction items.
+    columns:
+      - name: company_id
+        description: "Identifier for the auction house."
+        data_tests:
+          - not_null
+
+      - name: auction_house
+        description: "Name of the auction house."
+
+      - name: ended_items
+        description: "Number of historical ended auction items for the auction house."
+
+      - name: median_bid_count
+        description: "Median number of bids for historical ended items from the auction house."
+
+      - name: median_hammer_vs_estimate_pct
+        description: "Median hammer-price performance relative to estimate."
+
+      - name: pct_above_estimate
+        description: "Share of historical items from the auction house that sold above estimate."
+
+  - name: int_active_items_with_historical_performance
+    description: >
+      Active auction items enriched with current bidder engagement and historical
+      category and auction house performance. Acts as the bridge between current
+      marketplace activity and historical auction outcomes.
+    columns:
+      - name: item_id
+        description: "Identifier for the active auction item."
+        data_tests:
+          - not_null
+
+      - name: current_bid_count
+        description: "Current number of bids on the active item."
+        data_tests:
+          - not_null
+
+      - name: category_pct_above_estimate
+        description: "Historical share of items in the item's category that sold above estimate."
+
+      - name: house_pct_above_estimate
+        description: "Historical share of items from the item's auction house that sold above estimate."
+
+      - name: category_ended_items
+        description: "Historical sample size for the item's category."
+
+      - name: house_ended_items
+        description: "Historical sample size for the item's auction house."
+
+  - name: int_active_item_prioritisation
+    description: >
+      Prototype prioritisation model for active Auctionet items. Combines current
+      bid engagement with historical category and auction house performance.
+      Historical signals are adjusted for sample-size confidence, and current
+      engagement is scored relative to the active inventory using percentile rank.
+    columns:
+      - name: item_id
+        description: "Identifier for the active auction item."
+        data_tests:
+          - not_null
+
+      - name: engagement_score
+        description: >
+          Percentile-based engagement score derived from current bid count.
+          Higher values indicate stronger engagement relative to other active items.
+        data_tests:
+          - not_null
+
+      - name: category_performance_score
+        description: "Historical category performance based on the share of ended items selling above estimate."
+        data_tests:
+          - not_null
+
+      - name: house_performance_score
+        description: "Historical auction house performance based on the share of ended items selling above estimate."
+        data_tests:
+          - not_null
+
+      - name: category_confidence
+        description: "Confidence factor based on the number of historical category observations."
+        data_tests:
+          - not_null
+
+      - name: house_confidence
+        description: "Confidence factor based on the number of historical auction house observations."
+        data_tests:
+          - not_null
+
+      - name: prioritisation_score
+        description: >
+          Weighted prototype score combining 50% current engagement,
+          25% confidence-adjusted historical category performance and
+          25% confidence-adjusted historical auction house performance.
+        data_tests:
+          - not_null
+
+      - name: prioritisation_rank
+        description: "Rank of the active item based on prioritisation score, with 1 representing the highest priority."
+        data_tests:
+          - not_null
