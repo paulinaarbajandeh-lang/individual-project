@@ -1,0 +1,355 @@
+version: 2
+
+models:
+  - name: dim_items
+    description: "Dimension table containing the single most recently ingested record for each individual auction item."
+    columns:
+      - name: item_id
+        description: "Primary key for the item. Guaranteed unique via row-ranking logic."
+        data_tests:
+          - unique
+          - not_null
+
+      - name: title
+        description: "Name/title of the item."
+
+      - name: description
+        description: "Cleaned text description of the item (HTML tags removed)."
+
+      - name: condition
+        description: "Cleaned condition text details (HTML tags removed)."
+
+  - name: dim_houses
+    description: "Dimension table containing unique auction house company profiles."
+    columns:
+      - name: company_id
+        description: "Primary key for the auction house company."
+        data_tests:
+          - unique
+          - not_null
+
+      - name: house_name
+        description: "Name of the auction house (e.g., Hälsinglands Auktionsverk)."
+
+      - name: location
+        description: "The physical city/location of the auction house."
+
+      - name: country
+        description: "Country of the auction house, derived from the location-to-country mapping seed."
+
+  - name: dim_categories
+    description: "Dimension table containing Auctionet category names and their parent category hierarchy."
+    columns:
+      - name: category_id
+        description: "Primary key for the Auctionet category."
+        data_tests:
+          - unique
+          - not_null
+
+      - name: category_name
+        description: "Human-readable name of the Auctionet category."
+
+      - name: parent_category_id
+        description: "Identifier of the parent category. Null for top-level categories."
+
+      - name: parent_category_name
+        description: "Human-readable name of the parent category. Null for top-level categories."
+
+  - name: fct_auctions
+    description: "Fact table containing financial metrics, timestamps, category references, and active auction status for each item."
+    columns:
+      - name: item_id
+        description: "Foreign key linking to dim_items."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_items')
+                field: item_id
+
+      - name: company_id
+        description: "Foreign key linking to dim_houses."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_houses')
+                field: company_id
+
+      - name: category_id
+        description: "Foreign key linking the auction item to dim_categories."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_categories')
+                field: category_id
+
+      - name: auction_id
+        description: "The specific identifier for the auction event."
+
+      - name: estimate
+        description: "The base estimated value of the item in its original local currency."
+
+      - name: upper_estimate
+        description: "The maximum estimated value of the item in its original local currency."
+
+      - name: starting_bid_amount
+        description: "The starting bid required to enter the auction in its original local currency."
+
+      - name: estimate_sek
+        description: "Estimated item value normalized to SEK using fixed FX rates for the analysis."
+
+      - name: starting_bid_amount_sek
+        description: "Starting bid normalized to SEK using fixed FX rates for the analysis."
+
+      - name: reserve_met
+        description: "Boolean flag representing whether the hidden reserve pricing threshold has been met."
+
+      - name: hammered
+        description: "Boolean flag representing whether the auction item has been hammered."
+
+      - name: published_at
+        description: "Timestamp when the auction item was published."
+
+      - name: ends_at
+        description: "Timestamp when the auction bidding period expires."
+
+  - name: fct_bids
+    description: "Fact table containing one row per unique bid placed on an auction item."
+    columns:
+      - name: bid_id
+        description: "Primary key for the bid."
+        data_tests:
+          - unique
+          - not_null
+
+      - name: item_id
+        description: "Foreign key linking the bid to the auction item."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_items')
+                field: item_id
+
+      - name: bidder_id
+        description: "Anonymised bidder identifier within the auction context."
+
+      - name: bid_amount
+        description: "Amount of the bid in the item's original currency."
+
+      - name: reserve_met
+        description: "Boolean flag showing whether the reserve price had been met at the time of the bid."
+
+      - name: auto_bid
+        description: "Boolean flag showing whether the bid was placed automatically."
+
+      - name: bid_timestamp_epoch
+        description: "Unix timestamp representing when the bid was placed."
+
+      - name: ingested_at
+        description: "Timestamp showing when the source data was ingested."
+
+  - name: fct_ended_auctions
+    description: "Fact table containing one row per ended auction item with final hammer price and performance against estimate."
+    columns:
+      - name: item_id
+        description: "Unique identifier for the ended auction item."
+        data_tests:
+          - unique
+          - not_null
+
+      - name: auction_id
+        description: "Identifier for the auction or event."
+
+      - name: estimate
+        description: "Estimated value in the item's original currency."
+
+      - name: currency
+        description: "Original currency of the estimate."
+
+      - name: estimate_sek
+        description: "Estimated value converted to SEK using fixed analysis FX rates."
+
+      - name: bid_count
+        description: "Number of bids shown for online auctions. Null for event auctions."
+
+      - name: hammer_price_sek
+        description: "Displayed final hammer price in SEK."
+        data_tests:
+          - not_null
+
+      - name: hammer_vs_estimate_sek
+        description: "Difference in SEK between hammer price and estimated value."
+
+      - name: hammer_to_estimate_ratio
+        description: "Hammer price divided by estimated value."
+
+      - name: hammer_vs_estimate_pct
+        description: "Percentage difference between hammer price and estimated value."
+
+      - name: reserve_met
+        description: "Whether the reserve price was met."
+
+      - name: has_bid_count
+        description: "Not populated in the current historical dataset. Kept for schema compatibility."
+
+      - name: sale_format
+        description: "Not populated in the current historical dataset. Kept for schema compatibility."
+
+  - name: fct_active_item_prioritisation
+    description: >
+      Final mart model for active Auctionet item prioritisation.
+      Combines current bidder engagement with historical category and auction house
+      performance to produce a transparent prioritisation score and rank for active items.
+      Intended for downstream reporting and Power BI consumption.
+    columns:
+      - name: item_id
+        description: "Identifier for the active auction item."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: company_id
+        description: "Identifier for the auction house."
+
+      - name: category_id
+        description: "Identifier for the item's category."
+
+      - name: main_category_id
+        description: "Identifier for the item's main category."
+
+      - name: main_category_name
+        description: "Name of the item's main category."
+
+      - name: auction_house
+        description: "Name of the auction house."
+
+      - name: current_bid_count
+        description: "Current number of bids on the active item."
+        data_tests:
+          - not_null
+
+      - name: engagement_score
+        description: >
+          Percentile-based score representing the item's current bid activity
+          relative to other active items.
+        data_tests:
+          - not_null
+
+      - name: category_pct_above_estimate
+        description: "Historical share of ended items in the category that sold above estimate."
+
+      - name: house_pct_above_estimate
+        description: "Historical share of ended items from the auction house that sold above estimate."
+
+      - name: category_confidence
+        description: "Confidence factor based on historical category sample size."
+        data_tests:
+          - not_null
+
+      - name: house_confidence
+        description: "Confidence factor based on historical auction house sample size."
+        data_tests:
+          - not_null
+
+      - name: prioritisation_score
+        description: >
+          Weighted prototype score combining current engagement with
+          confidence-adjusted historical category and auction house performance.
+        data_tests:
+          - not_null
+
+      - name: prioritisation_rank
+        description: "Rank of the active item based on prioritisation score, where 1 is highest priority."
+        data_tests:
+          - not_null
+
+      - name: bid_count_rank
+        description: >
+          Baseline ranking of active items based solely on current bid count.
+          Items with equal bid counts are ordered by item_id.
+          Used to compare the proposed prioritisation model against a
+          simple popularity-based ranking.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: top_100_group
+        description: >
+          Classifies active items based on whether they appear in the
+          Top 100 by bid count, the prioritisation model, both rankings,
+          or neither. Used to compare the proposed model with a
+          simple bid-count baseline.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - 'Both Top 100'
+                  - 'Priority Model Only'
+                  - 'Bid Count Only'
+                  - 'Outside Top 100'
+
+      - name: ends_at
+        description: >
+          Scheduled closing timestamp of the active auction.
+          Provides time-to-close context for marketplace
+          visibility decisions. Not used in the prioritisation score.
+        data_tests:
+          - not_null
+
+      - name: published_at
+        description: >
+          Timestamp when the active auction item was published.
+          Provides context for how long an item has been listed
+          and accumulated bids. Not used in the prioritisation score.
+        data_tests:
+          - not_null
+
+      - name: ends_at_stockholm
+        description: >
+          Scheduled auction closing timestamp converted from UTC
+          to Europe/Stockholm time, including daylight saving time.
+          Used for display in Power BI, not for scoring.
+        data_tests:
+          - not_null
+
+      - name: published_at_stockholm
+        description: >
+          Auction publication timestamp converted from UTC
+          to Europe/Stockholm time, including daylight saving time.
+          Used for display in Power BI, not for scoring.
+        data_tests:
+          - not_null
+
+  - name: fct_historical_category_performance
+    description: >
+      Historical auction performance per main category, based on ended auctions
+      from 12 October to 10 November 2026. Reporting model used in Power BI.
+    columns:
+      - name: main_category_id
+        description: "Identifier for the main auction category."
+        data_tests:
+          - unique
+          - not_null
+      - name: ended_items
+        description: "Number of historical ended auctions in the category."
+      - name: pct_above_estimate
+        description: "Share of historical auctions in the category that sold above estimate."
+
+  - name: fct_historical_house_performance
+    description: >
+      Historical auction performance per auction house, based on ended auctions
+      from 12 October to 10 November 2026. Reporting model used in Power BI.
+    columns:
+      - name: company_id
+        description: "Identifier for the auction house."
+        data_tests:
+          - unique
+          - not_null
+      - name: ended_items
+        description: "Number of historical ended auctions for the auction house."
+      - name: pct_above_estimate
+        description: "Share of historical auctions from the auction house that sold above estimate."
