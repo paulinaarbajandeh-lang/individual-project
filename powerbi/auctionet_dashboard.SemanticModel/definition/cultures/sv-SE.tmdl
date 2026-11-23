@@ -23,16 +23,6 @@ cultureInfo sv-SE
 			            },
 			            "Weight": 0.9
 			          }
-			        },
-			        {
-			          "Subcategory": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -52,29 +42,7 @@ cultureInfo sv-SE
 			          "ConceptualProperty": "PARENT_CATEGORY_NAME"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Main category": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "Main category:": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "fct_active_item_prioritisation.prioritisation_rank": {
 			      "Definition": {
@@ -87,16 +55,6 @@ cultureInfo sv-SE
 			      "Terms": [
 			        {
 			          "Overall Model Priority Rank": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "Model Priority Rank": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -303,16 +261,6 @@ cultureInfo sv-SE
 			            },
 			            "Weight": 0.9
 			          }
-			        },
-			        {
-			          "Historical Category Sales": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -327,16 +275,6 @@ cultureInfo sv-SE
 			      "Terms": [
 			        {
 			          "House Auctions (n)": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "Historical House Sales": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
