@@ -10,47 +10,8 @@
       "nodes": [
         {
           "location": {
-            "x": 295,
-            "y": 308.5
-          },
-          "nodeIndex": "DIM_HOUSES",
-          "nodeLineageTag": "22132acc-d7c2-4fa2-a27f-ea664390c7f4",
-          "size": {
-            "height": 185.00612244897957,
-            "width": 234
-          },
-          "zIndex": 6
-        },
-        {
-          "location": {
-            "x": 306.86138613861385,
+            "x": 0,
             "y": 0
-          },
-          "nodeIndex": "DIM_ITEMS",
-          "nodeLineageTag": "a9674616-6d55-4fa9-8864-3f3e67a2c093",
-          "size": {
-            "height": 286,
-            "width": 234
-          },
-          "zIndex": 8
-        },
-        {
-          "location": {
-            "x": 11,
-            "y": 3.5
-          },
-          "nodeIndex": "FCT_AUCTIONS",
-          "nodeLineageTag": "4ad561b3-a2e4-4560-87c4-6ebf1a742c09",
-          "size": {
-            "height": 754.61224489795916,
-            "width": 234
-          },
-          "zIndex": 7
-        },
-        {
-          "location": {
-            "x": 296.37425742574248,
-            "y": 529.98836128510789
           },
           "nodeIndex": "DIM_CATEGORIES",
           "nodeLineageTag": "db937ea4-1736-419d-90d4-d43b7918a3cf",
@@ -62,20 +23,7 @@
         },
         {
           "location": {
-            "x": 582.30628409779752,
-            "y": 2.0676500303090961
-          },
-          "nodeIndex": "FCT_BIDS",
-          "nodeLineageTag": "0bc63018-e0a1-4b7e-b9ae-4a998beee1ef",
-          "size": {
-            "height": 556.38163265306116,
-            "width": 234
-          },
-          "zIndex": 2
-        },
-        {
-          "location": {
-            "x": 847.97159022024641,
+            "x": 328.52714577580184,
             "y": 0
           },
           "nodeIndex": "FCT_ACTIVE_ITEM_PRIORITISATION",
@@ -88,23 +36,24 @@
         },
         {
           "location": {
-            "x": 1120.9715902202465,
-            "y": 303.05612244897958
+            "x": 966.80492355357967,
+            "y": 263.16820673174885
           },
           "nodeIndex": "Top100_Comparison",
           "nodeLineageTag": "a6096221-73d6-47a0-bfcc-df853a6ff299",
           "size": {
             "height": 152,
-            "width": 234
+            "width": 257.611111111111
           },
           "zIndex": 3
         },
         {
           "location": {
-            "x": 1393.9715902202465,
-            "y": 255.95459183673472
+            "x": 620.36047910913544,
+            "y": 4.5657029478458391
           },
           "nodeIndex": "FCT_HISTORICAL_CATEGORY_PERFORMANCE",
+          "nodeLineageTag": "5ad306f5-78de-40d2-8b54-9de0a4475114",
           "size": {
             "height": 298.38888888888891,
             "width": 259
@@ -113,13 +62,14 @@
         },
         {
           "location": {
-            "x": 1677.9715902202465,
-            "y": 255.95459183673472
+            "x": 620.05249062443477,
+            "y": 329.56570294784581
           },
           "nodeIndex": "FCT_HISTORICAL_HOUSE_PERFORMANCE",
+          "nodeLineageTag": "a550749f-2a93-45ef-992c-7e0a61fb3a6e",
           "size": {
             "height": 295.61111111111109,
-            "width": 234
+            "width": 263.16666666666674
           },
           "zIndex": 0
         }

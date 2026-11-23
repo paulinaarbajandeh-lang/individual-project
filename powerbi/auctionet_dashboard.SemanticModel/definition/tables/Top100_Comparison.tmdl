@@ -9,32 +9,15 @@ table Top100_Comparison
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Shared Top 100'
-		dataType: int64
-		formatString: 0
-		lineageTag: 5495979f-2197-452f-a270-f1ce939cff60
-		summarizeBy: sum
-		sourceColumn: Shared Top 100
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Unique Top 100'
-		dataType: int64
-		formatString: 0
-		lineageTag: ea2c1c00-4da8-417f-b9a6-ef3ec12d1e93
-		summarizeBy: sum
-		sourceColumn: Unique Top 100
-
-		annotation SummarizationSetBy = Automatic
-
 	partition Top100_Comparison = m
 		mode: import
 		source =
 				let
 				    Källa = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WcspMUXDOL80rUQhKzMvOzEtX0lEyMQISphZKsTrRSgFFmflFmSWVCr75Kak52BTFAgA=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Ranking = _t, #"Shared Top 100" = _t, #"Unique Top 100" = _t]),
-				    #"Ändrad typ" = Table.TransformColumnTypes(Källa,{{"Ranking", type text}, {"Shared Top 100", Int64.Type}, {"Unique Top 100", Int64.Type}})
+				    #"Ändrad typ" = Table.TransformColumnTypes(Källa,{{"Ranking", type text}, {"Shared Top 100", Int64.Type}, {"Unique Top 100", Int64.Type}}),
+				    #"Borttagna kolumner" = Table.RemoveColumns(#"Ändrad typ",{"Shared Top 100", "Unique Top 100"})
 				in
-				    #"Ändrad typ"
+				    #"Borttagna kolumner"
 
 	annotation PBI_ResultType = Table
 
