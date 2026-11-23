@@ -5,8 +5,8 @@ CREATE OR REPLACE STORAGE INTEGRATION azure_raw_integration
   TYPE = EXTERNAL_STAGE
   STORAGE_PROVIDER = 'AZURE'
   ENABLED = TRUE
-  AZURE_TENANT_ID = 'd236863a-f43f-4500-9e6d-8a195ae609f8'
-  STORAGE_ALLOWED_LOCATIONS = ('azure://saauctionetassessment.blob.core.windows.net/raw');
+  AZURE_TENANT_ID = '<AZURE_TENANT_ID>'
+  STORAGE_ALLOWED_LOCATIONS = ('azure://<STORAGE_ACCOUNT>.blob.core.windows.net/raw');
 
 -- Inspect integration
 DESCRIBE STORAGE INTEGRATION azure_raw_integration;
@@ -28,7 +28,7 @@ GRANT CREATE STAGE ON SCHEMA DEV_BRONZE.AUCTIONET TO ROLE SYSADMIN;
 -- Create the external stage pointing to the raw container
 CREATE OR REPLACE STAGE DEV_BRONZE.AUCTIONET.ext_stage_raw
   STORAGE_INTEGRATION = azure_raw_integration
-  URL = 'azure://saauctionetassessment.blob.core.windows.net/raw'
+  URL = 'azure://<STORAGE_ACCOUNT>.blob.core.windows.net/raw'
   FILE_FORMAT = (TYPE = 'JSON'); -- Automatically pre-configures this stage for raw JSON files
 
 -- Check connection
@@ -41,9 +41,8 @@ CREATE OR REPLACE NOTIFICATION INTEGRATION azure_event_grid_integration
   ENABLED = TRUE
   TYPE = QUEUE
   NOTIFICATION_PROVIDER = AZURE_STORAGE_QUEUE
-  AZURE_TENANT_ID = 'd236863a-f43f-4500-9e6d-8a195ae609f8'
-  AZURE_STORAGE_QUEUE_PRIMARY_URI = 'https://saauctionetassessment.queue.core.windows.net/queue-auctionet-snowflake';
+  AZURE_TENANT_ID = '<AZURE_TENANT_ID>'
+  AZURE_STORAGE_QUEUE_PRIMARY_URI = 'https://<STORAGE_ACCOUNT>.queue.core.windows.net/<QUEUE_NAME>';
 
 -- Check integration
 DESCRIBE NOTIFICATION INTEGRATION azure_event_grid_integration;
-
