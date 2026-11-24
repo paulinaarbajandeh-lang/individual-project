@@ -723,6 +723,256 @@
             }
           ]
         }
+      },
+      {
+        "name": "44b8149c8a855fa2e73d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FCT_ACTIVE_ITEM_PRIORITISATION"
+              }
+            },
+            "Property": "MAIN_CATEGORY_NAME"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1b1c752d3ab905227f97",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FCT_ACTIVE_ITEM_PRIORITISATION"
+              }
+            },
+            "Property": "AUCTION_HOUSE"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "dc69de207285a4b94eb9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FCT_ACTIVE_ITEM_PRIORITISATION"
+              }
+            },
+            "Property": "PRIORITISATION_RANK"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "199f8ac46046b213115f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FCT_ACTIVE_ITEM_PRIORITISATION"
+              }
+            },
+            "Property": "PRIORITISATION_SCORE"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c0458644f70fb18ce6bc",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FCT_ACTIVE_ITEM_PRIORITISATION"
+              }
+            },
+            "Property": "BID_COUNT_RANK"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "84b5d6104e34ef1679e6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FCT_ACTIVE_ITEM_PRIORITISATION"
+              }
+            },
+            "Property": "CURRENT_BID_COUNT"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9c8a702d307eca07b467",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FCT_ACTIVE_ITEM_PRIORITISATION"
+              }
+            },
+            "Property": "CATEGORY_PCT_ABOVE_ESTIMATE"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2746847e8a89eb7eb685",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FCT_ACTIVE_ITEM_PRIORITISATION"
+              }
+            },
+            "Property": "HOUSE_PCT_ABOVE_ESTIMATE"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0c56c2ef7228db5a1ed5",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FCT_ACTIVE_ITEM_PRIORITISATION"
+              }
+            },
+            "Property": "CATEGORY_ENDED_ITEMS"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7ae881f9a8bad6f0d6fd",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FCT_ACTIVE_ITEM_PRIORITISATION"
+              }
+            },
+            "Property": "HOUSE_ENDED_ITEMS"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "35c2731189a9b939c2fc",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FCT_ACTIVE_ITEM_PRIORITISATION"
+              }
+            },
+            "Property": "Hours to Close"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0a54ac470aeb9c44e4d8",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FCT_ACTIVE_ITEM_PRIORITISATION"
+              }
+            },
+            "Property": "PUBLISHED_AT_STOCKHOLM"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "411c746f69da4f69a70e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FCT_ACTIVE_ITEM_PRIORITISATION"
+              }
+            },
+            "Property": "ENDS_AT_STOCKHOLM"
+          }
+        },
+        "type": "RelativeDate",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "FCT_ACTIVE_ITEM_PRIORITISATION",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Between": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "f"
+                        }
+                      },
+                      "Property": "ENDS_AT_STOCKHOLM"
+                    }
+                  },
+                  "LowerBound": {
+                    "DateSpan": {
+                      "Expression": {
+                        "DateAdd": {
+                          "Expression": {
+                            "Now": {}
+                          },
+                          "Amount": 1,
+                          "TimeUnit": 0
+                        }
+                      },
+                      "TimeUnit": 0
+                    }
+                  },
+                  "UpperBound": {
+                    "DateSpan": {
+                      "Expression": {
+                        "DateAdd": {
+                          "Expression": {
+                            "DateAdd": {
+                              "Expression": {
+                                "DateAdd": {
+                                  "Expression": {
+                                    "Now": {}
+                                  },
+                                  "Amount": 1,
+                                  "TimeUnit": 0
+                                }
+                              },
+                              "Amount": -1,
+                              "TimeUnit": 0
+                            }
+                          },
+                          "Amount": 1,
+                          "TimeUnit": 0
+                        }
+                      },
+                      "TimeUnit": 0
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
       }
     ]
   }

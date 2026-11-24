@@ -20,7 +20,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "INT_HISTORICAL_HOUSE_PERFORMANCE"
+                      "Entity": "FCT_HISTORICAL_HOUSE_PERFORMANCE"
                     }
                   },
                   "Property": "AUCTION_HOUSE"
