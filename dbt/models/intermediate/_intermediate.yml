@@ -159,3 +159,26 @@ models:
         description: "Rank of the active item based on prioritisation score, with 1 representing the highest priority."
         data_tests:
           - not_null
+
+  - name: int_auctionet_bids
+    description: "Unpacks the bids embedded in each active item into one row per bid and removes duplicate bids."
+    columns:
+      - name: bid_id
+        description: "Unique identifier for the bid."
+        data_tests:
+          - unique
+          - not_null
+
+      - name: item_id
+        description: "The auction item the bid was placed on."
+        data_tests:
+          - not_null
+
+  - name: int_auction_houses
+    description: "Latest name and location for each auction house, with country from the location_country_map seed."
+    columns:
+      - name: company_id
+        description: "Unique identifier for the auction house."
+        data_tests:
+          - unique
+          - not_null        

@@ -9,7 +9,7 @@ with auctions as (
         item_id,
         ends_at,
         published_at
-    from {{ ref('fct_auctions') }}
+    from {{ ref('int_auctionet_items_cleaned') }}
 ),
 
 ranked_items as (
