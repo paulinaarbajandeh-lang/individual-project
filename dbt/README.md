@@ -17,11 +17,14 @@ each Azure Data Factory ingestion, so every model is rebuilt and tested automati
 ## Data flow
 
 The project has three source branches that come together in the prioritisation model.
+Data always flows in one direction: staging → intermediate → marts. Intermediate models never read from marts.
 
 **Active auctions (Auctionet API, via Azure Data Factory and Snowpipe)**
 - `stg_auctionet_items_current`: keeps the latest file per page and one row per item. This is the current snapshot of about 10,000 active items.
 - `int_auctionet_items_cleaned`: converts estimates and starting bids to SEK, removes HTML tags and converts Unix timestamps.
-- Marts: `fct_auctions`, `fct_bids`, `dim_items` and `dim_houses`. `dim_houses` adds the country from the seed `location_country_map`.
+- `int_auctionet_bids`: unpacks the bids embedded in each item into one row per bid and removes duplicates.
+- `int_auction_houses`: keeps the latest name and location per auction house and adds the country from the seed `location_country_map`.
+- Marts: `fct_auctions`, `fct_bids`, `dim_items` and `dim_houses` read from the models above.
 
 **Categories (Auctionet API)**
 - `stg_auctionet_categories` flattens the two-level category tree.
@@ -35,7 +38,7 @@ The project has three source branches that come together in the prioritisation m
 - `fct_historical_category_performance` and `fct_historical_house_performance` expose these aggregates to Power BI.
 
 **Prioritisation**
-- `int_active_items_with_historical_performance` combines each active item with its bid count, main category, auction house and the historical performance of that category and house. All joins are left joins, so items without history are kept.
+- `int_active_items_with_historical_performance` combines each active item with its bid count, main category, auction house and the historical performance of that category and house. It reads only from staging and intermediate models. All joins are left joins, so items without history are kept.
 - `int_active_item_prioritisation` calculates the engagement score, confidence factors, Priority Score and rank.
 - `fct_active_item_prioritisation` adds Stockholm timestamps, a bid-count baseline ranking and the Top 100 comparison groups.
 
