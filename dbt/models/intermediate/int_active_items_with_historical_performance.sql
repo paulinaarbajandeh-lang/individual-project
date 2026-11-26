@@ -3,6 +3,10 @@
     schema='intermediate'
 ) }}
 
+-- Combines each active item with its bid count, main category, auction house
+-- and the historical performance of that category and house.
+-- All joins are left joins, so items without history are kept.
+
 select
     a.item_id,
     a.company_id,
@@ -27,21 +31,21 @@ select
     hp.median_hammer_vs_estimate_pct as house_median_hammer_vs_estimate_pct,
     hp.pct_above_estimate as house_pct_above_estimate
 
-from {{ ref('fct_auctions') }} a
+from {{ ref('int_auctionet_items_cleaned') }} a
 
 left join (
     select
         item_id,
         count(*) as bid_count
-    from {{ ref('fct_bids') }}
+    from {{ ref('int_auctionet_bids') }}
     group by item_id
 ) b
     on a.item_id = b.item_id
 
-left join {{ ref('dim_categories') }} c
+left join {{ ref('stg_auctionet_categories') }} c
     on a.category_id = c.category_id
 
-left join {{ ref('dim_houses') }} h
+left join {{ ref('int_auction_houses') }} h
     on a.company_id = h.company_id
 
 left join {{ ref('int_historical_category_performance') }} cp

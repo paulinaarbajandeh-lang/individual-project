@@ -22,7 +22,7 @@ select
         end
     ) as pct_above_estimate
 
-from {{ ref('fct_ended_auctions') }}
+from {{ ref('int_auctionet_ended_cleaned') }}
 
 where main_category_id is not null
   and main_category_name is not null
