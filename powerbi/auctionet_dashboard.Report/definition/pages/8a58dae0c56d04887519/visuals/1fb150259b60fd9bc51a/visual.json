@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "FCT_ACTIVE_ITEM_PRIORITISATION.Ranking-Specific Top 100",
-              "nativeQueryRef": "Ranking-Specific Top 100"
+              "nativeQueryRef": "Ranking-Specific Top 100",
+              "format": "0"
             }
           ]
         }
@@ -58,7 +59,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#575c65'"
+                      "Value": "'#0F766E'"
                     }
                   }
                 }
@@ -71,17 +72,6 @@
         },
         {
           "properties": {
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#94A3B8'"
-                    }
-                  }
-                }
-              }
-            },
             "fontSize": {
               "expr": {
                 "Literal": {
@@ -95,10 +85,53 @@
                   "Value": "'center'"
                 }
               }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "italic": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0F766E'"
+                    }
+                  }
+                }
+              }
             }
           },
           "selector": {
             "id": "default"
+          }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
           }
         }
       ]
