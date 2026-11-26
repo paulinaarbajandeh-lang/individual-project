@@ -19,7 +19,27 @@
               {
                 "textRuns": [
                   {
-                    "value": "Priority Score = 0.50 × Engagement + 0.25 × Category % × Confidence + 0.25 × House % × Confidence.",
+                    "value": "Priority Score",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "color": "#6b7280"
+                    }
+                  },
+                  {
+                    "value": " ",
+                    "textStyle": {
+                      "color": "#6b7280"
+                    }
+                  },
+                  {
+                    "value": "=",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "color": "#6b7280"
+                    }
+                  },
+                  {
+                    "value": " 0.50 × Engagement + 0.25 × Category % × Confidence + 0.25 × House % × Confidence.",
                     "textStyle": {
                       "color": "#6b7280"
                     }

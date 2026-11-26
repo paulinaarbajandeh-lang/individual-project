@@ -19,16 +19,12 @@
               {
                 "textRuns": [
                   {
-                    "value": "How bids become Engagement",
+                    "value": "How bids become Engagement: ",
                     "textStyle": {
                       "fontWeight": "bold",
                       "color": "#6b7280"
                     }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
+                  },
                   {
                     "value": "Engagement is the item's percentile rank in bid count among all active items: 0 for the fewest bids, 1 for the most. A value of 0.96 means the item has more bids than 96% of active items. Because most items have only a few bids, an item can reach a high Engagement score with a moderate number of bids, while additional bids change the score very little near the top.",
                     "textStyle": {
