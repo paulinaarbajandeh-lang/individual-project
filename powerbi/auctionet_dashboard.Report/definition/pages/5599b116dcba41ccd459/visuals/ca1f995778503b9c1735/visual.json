@@ -1,9 +1,9 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
   "name": "ca1f995778503b9c1735",
   "position": {
-    "x": 7.0175438596491233,
-    "y": 291.22807017543863,
+    "x": 6.666666666666667,
+    "y": 290,
     "z": 0,
     "height": 501.75438596491233,
     "width": 1905.2631578947371,
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "FCT_ACTIVE_ITEM_PRIORITISATION.ITEM_ID",
-              "nativeQueryRef": "ITEM_ID",
-              "active": true
+              "nativeQueryRef": "Item ID:",
+              "active": true,
+              "displayName": "Item ID:"
             }
           ]
         },
@@ -46,7 +47,8 @@
                 }
               },
               "queryRef": "FCT_ACTIVE_ITEM_PRIORITISATION.Engagement Contribution",
-              "nativeQueryRef": "Engagement Contribution",
+              "nativeQueryRef": "Engagement Contribution:",
+              "displayName": "Engagement Contribution:",
               "format": "0.000"
             },
             {
@@ -61,7 +63,8 @@
                 }
               },
               "queryRef": "FCT_ACTIVE_ITEM_PRIORITISATION.Category Contribution",
-              "nativeQueryRef": "Category Contribution",
+              "nativeQueryRef": "Category Contribution:",
+              "displayName": "Category Contribution:",
               "format": "0.000"
             },
             {
@@ -76,7 +79,8 @@
                 }
               },
               "queryRef": "FCT_ACTIVE_ITEM_PRIORITISATION.House Contribution",
-              "nativeQueryRef": "House Contribution",
+              "nativeQueryRef": "House Contribution:",
+              "displayName": "House Contribution:",
               "format": "0.000"
             }
           ]
@@ -150,7 +154,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Priority Score Breakdown - Worked Example'"
+                  "Value": "'Priority Score Breakdown for Highest Ranked Item(s)'"
                 }
               }
             },
@@ -282,6 +286,89 @@
             }
           ]
         }
+      },
+      {
+        "name": "787232a4523ac9764b55",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FCT_ACTIVE_ITEM_PRIORITISATION"
+              }
+            },
+            "Property": "ENDS_AT_STOCKHOLM"
+          }
+        },
+        "type": "RelativeDate",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "FCT_ACTIVE_ITEM_PRIORITISATION",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Between": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "f"
+                        }
+                      },
+                      "Property": "ENDS_AT_STOCKHOLM"
+                    }
+                  },
+                  "LowerBound": {
+                    "DateSpan": {
+                      "Expression": {
+                        "DateAdd": {
+                          "Expression": {
+                            "Now": {}
+                          },
+                          "Amount": 1,
+                          "TimeUnit": 0
+                        }
+                      },
+                      "TimeUnit": 0
+                    }
+                  },
+                  "UpperBound": {
+                    "DateSpan": {
+                      "Expression": {
+                        "DateAdd": {
+                          "Expression": {
+                            "DateAdd": {
+                              "Expression": {
+                                "DateAdd": {
+                                  "Expression": {
+                                    "Now": {}
+                                  },
+                                  "Amount": 1,
+                                  "TimeUnit": 0
+                                }
+                              },
+                              "Amount": -1,
+                              "TimeUnit": 0
+                            }
+                          },
+                          "Amount": 1,
+                          "TimeUnit": 0
+                        }
+                      },
+                      "TimeUnit": 0
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
       }
     ]
   }

@@ -1,0 +1,63 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
+  "name": "da697d3e9b207e2328e9",
+  "position": {
+    "x": 6.3636363636363633,
+    "y": 959.99999999999989,
+    "z": 5000,
+    "height": 69.090909090909079,
+    "width": 691.81818181818176,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "The Priority Score is a prioritisation index from 0 to 1, not a probability of selling above estimate.",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "color": "#5e636f"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "The weights (50/25/25) are chosen assumptions. They have been sensitivity-tested, but not evaluated against actual auction outcomes.",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "color": "#5e636f"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

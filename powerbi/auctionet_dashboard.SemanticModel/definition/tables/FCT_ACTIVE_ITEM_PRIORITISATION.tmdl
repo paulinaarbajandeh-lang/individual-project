@@ -367,6 +367,20 @@ table FCT_ACTIVE_ITEM_PRIORITISATION
 
 		annotation PBI_FormatHint = {"isDateTimeCustom":true}
 
+	column 'Top 100 Group Label' =
+			
+			SWITCH(
+			    FCT_ACTIVE_ITEM_PRIORITISATION[TOP_100_GROUP],
+			    "Both Top 100", "Selected by both rankings",
+			    "Priority Model Only", "Selected only by priority model",
+			    "Bid Count Only", "Selected only by bid count",
+			    FCT_ACTIVE_ITEM_PRIORITISATION[TOP_100_GROUP]
+			)
+		lineageTag: c0f5cb0f-b613-474c-a7c2-30628982ad68
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition FCT_ACTIVE_ITEM_PRIORITISATION = m
 		mode: directQuery
 		source =

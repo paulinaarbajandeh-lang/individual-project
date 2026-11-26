@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
   "name": "45d524fc1ad9a1770deb",
   "position": {
     "x": 0,
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "DIM_CATEGORIES.CATEGORY_NAME",
-              "nativeQueryRef": "CATEGORY_NAME",
-              "active": true
+              "nativeQueryRef": "Category:",
+              "active": true,
+              "displayName": "Category:"
             }
           ]
         },
@@ -97,8 +98,8 @@
                 }
               },
               "queryRef": "Avg(INT_HISTORICAL_CATEGORY_PERFORMANCE.PCT_ABOVE_ESTIMATE)",
-              "nativeQueryRef": "% Above Estimate:",
-              "displayName": "% Above Estimate:",
+              "nativeQueryRef": "% Sold Above Estimate:",
+              "displayName": "% Sold Above Estimate:",
               "format": "0 %;-0 %;0 %"
             }
           ]

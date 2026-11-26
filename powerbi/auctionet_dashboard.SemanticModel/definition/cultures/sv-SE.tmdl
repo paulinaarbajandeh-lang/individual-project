@@ -15,6 +15,16 @@ cultureInfo sv-SE
 			      "State": "Generated",
 			      "Terms": [
 			        {
+			          "Category:": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
 			          "Category": {
 			            "State": "Suggested",
 			            "Source": {
@@ -375,6 +385,111 @@ cultureInfo sv-SE
 			        }
 			      },
 			      "State": "Generated"
+			    },
+			    "fct_active_item_prioritisation.top_100_group_label": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FCT_ACTIVE_ITEM_PRIORITISATION",
+			          "ConceptualProperty": "Top 100 Group Label"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Group:": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fct_active_item_prioritisation.hours_to_close": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FCT_ACTIVE_ITEM_PRIORITISATION",
+			          "ConceptualProperty": "Hours to Close"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Hours to Close:": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fct_active_item_prioritisation.engagement_contribution": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FCT_ACTIVE_ITEM_PRIORITISATION",
+			          "ConceptualProperty": "Engagement Contribution"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Engagement Contribution:": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fct_active_item_prioritisation.category_contribution": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FCT_ACTIVE_ITEM_PRIORITISATION",
+			          "ConceptualProperty": "Category Contribution"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Category Contribution:": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fct_active_item_prioritisation.house_contribution": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FCT_ACTIVE_ITEM_PRIORITISATION",
+			          "ConceptualProperty": "House Contribution"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "House Contribution:": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  }
 			}

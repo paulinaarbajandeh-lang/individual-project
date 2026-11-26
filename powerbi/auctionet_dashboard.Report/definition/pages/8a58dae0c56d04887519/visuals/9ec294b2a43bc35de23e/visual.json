@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
   "name": "9ec294b2a43bc35de23e",
   "position": {
-    "x": 794.64285714285711,
-    "y": 769.64285714285711,
-    "z": 3000,
-    "height": 310.71428571428567,
-    "width": 1123.2142857142856,
-    "tabOrder": 3000
+    "x": 794.11764705882354,
+    "y": 752.94117647058818,
+    "z": 2000,
+    "height": 327.45098039215685,
+    "width": 1123.5294117647059,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -23,12 +23,37 @@
                       "Entity": "FCT_ACTIVE_ITEM_PRIORITISATION"
                     }
                   },
-                  "Property": "TOP_100_GROUP"
+                  "Property": "Top 100 Group Label"
                 }
               },
-              "queryRef": "FCT_ACTIVE_ITEM_PRIORITISATION.TOP_100_GROUP",
-              "nativeQueryRef": "TOP_100_GROUP",
-              "active": true
+              "queryRef": "FCT_ACTIVE_ITEM_PRIORITISATION.Top 100 Group Label",
+              "nativeQueryRef": "Group:",
+              "active": true,
+              "displayName": "Group:"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FCT_ACTIVE_ITEM_PRIORITISATION"
+                        }
+                      },
+                      "Property": "ITEM_ID"
+                    }
+                  },
+                  "Function": 2
+                }
+              },
+              "queryRef": "Min(FCT_ACTIVE_ITEM_PRIORITISATION.ITEM_ID)",
+              "nativeQueryRef": "Number of Items:",
+              "displayName": "Number of Items:"
             }
           ]
         },
@@ -51,8 +76,8 @@
                 }
               },
               "queryRef": "Sum(FCT_ACTIVE_ITEM_PRIORITISATION.CATEGORY_PCT_ABOVE_ESTIMATE)",
-              "nativeQueryRef": "Historical Category Performance",
-              "displayName": "Historical Category Performance",
+              "nativeQueryRef": "Category: % Sold Above Estimate:",
+              "displayName": "Category: % Sold Above Estimate:",
               "format": "0.00 %;-0.00 %;0.00 %"
             },
             {
@@ -72,8 +97,8 @@
                 }
               },
               "queryRef": "Sum(FCT_ACTIVE_ITEM_PRIORITISATION.HOUSE_PCT_ABOVE_ESTIMATE)",
-              "nativeQueryRef": "Historical House Performance",
-              "displayName": "Historical House Performance",
+              "nativeQueryRef": "Auction House: % Sold Above Estimate:",
+              "displayName": "Auction House: % Sold Above Estimate:",
               "format": "0.00 %;-0.00 %;0.00 %"
             }
           ]
@@ -194,6 +219,13 @@
                   "Value": "true"
                 }
               }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
@@ -219,7 +251,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Historical Performance of Top 100 Selection Groups'"
+                  "Value": "'Do the model''s picks come from stronger categories and auction houses?'"
                 }
               }
             },
@@ -253,7 +285,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Historical performance of the categories and houses in each group, not the outcome of these items  '"
+                  "Value": "'Share of past auctions sold above estimate in the categories and auction houses of each group''s items. Compare the groups, not the bars within a group.'"
                 }
               }
             },
@@ -372,6 +404,7 @@
             }
           ]
         },
+        "howCreated": "User",
         "objects": {
           "general": [
             {

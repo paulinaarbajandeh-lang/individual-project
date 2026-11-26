@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
   "name": "b05fb2e821790b9698d4",
   "position": {
     "x": 0,
-    "y": 525,
+    "y": 551.66666666666674,
     "z": 1000,
-    "height": 551.78571428571422,
-    "width": 794.64285714285711,
+    "height": 528.33333333333337,
+    "width": 795,
     "tabOrder": 1000
   },
   "visual": {
@@ -179,6 +179,22 @@
               "nativeQueryRef": "Medelvärde på HOUSE_ENDED_ITEMS",
               "displayName": "House Sample Size:",
               "format": "0"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FCT_ACTIVE_ITEM_PRIORITISATION"
+                    }
+                  },
+                  "Property": "Hours to Close"
+                }
+              },
+              "queryRef": "FCT_ACTIVE_ITEM_PRIORITISATION.Hours to Close",
+              "nativeQueryRef": "Hours to Close:",
+              "displayName": "Hours to Close:",
+              "format": "0.00"
             }
           ]
         },
@@ -298,6 +314,19 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualTooltip": [
+        {
+          "properties": {
+            "type": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Canvas'"
                 }
               }
             }

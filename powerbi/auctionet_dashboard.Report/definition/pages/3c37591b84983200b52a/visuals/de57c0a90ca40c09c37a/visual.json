@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
   "name": "de57c0a90ca40c09c37a",
   "position": {
     "x": 0,
@@ -98,8 +98,8 @@
                 }
               },
               "queryRef": "Sum(INT_HISTORICAL_HOUSE_PERFORMANCE.PCT_ABOVE_ESTIMATE)",
-              "nativeQueryRef": "% Above Estimate:",
-              "displayName": "% Above Estimate:",
+              "nativeQueryRef": "% Sold Above Estimate:",
+              "displayName": "% Sold Above Estimate:",
               "format": "0 %;-0 %;0 %"
             }
           ]
