@@ -37,7 +37,8 @@ The historical data was collected from Auctionet's Swedish website, so category 
 | `Shared Top 100` | Number of items in both the model's Top 100 and the bid-count Top 100 |
 | `Ranking-Specific Top 100` | Number of items in only one of the two Top 100 lists |
 
-The Top 100 measures always use the full snapshot and are not affected by the slicers.
+The Top 100 measures always use all active items and are not affected by the slicers.
+A calculated column, `Top 100 Group Label`, gives the Top 100 groups readable names in the group chart.
 
 ## Opening the report
 
