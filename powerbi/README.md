@@ -7,7 +7,7 @@ It supports a Marketplace Manager in selecting active items for extra visibility
 
 | Page | What it shows |
 |---|---|
-| **Marketplace Prioritisation** | A Top 10 shortlist of items ending the next day, the relationship between current bids and Priority Score, a comparison between the model's Top 100 and a Top 100 based on bid count only, and the historical performance of the categories and auction houses in each group. Category and Auction House slicers filter the page. |
+| **Marketplace Prioritisation** | A Top 10 shortlist of items ending the next day, the relationship between current bids and Priority Score, two cards comparing the model's Top 100 with a Top 100 based on bid count only, and the historical performance of the categories and auction houses in each group. Category and Auction House slicers filter the page. |
 | **Worked Example** | Titled *How the Priority Score Works*. A worked example of how an item's score is built from engagement, historical category performance and historical auction house performance, together with the formula. |
 | **Marketplace Performance** | Titled *Historical Marketplace Performance*. The share of ended auctions sold above estimate per category and auction house, with the number of auctions behind each value (12 October – 10 November 2026). |
 
@@ -22,7 +22,6 @@ The report connects to Snowflake with **DirectQuery** and reads only from the db
 | `FCT_HISTORICAL_CATEGORY_PERFORMANCE` | dbt mart | Historical category chart |
 | `FCT_HISTORICAL_HOUSE_PERFORMANCE` | dbt mart | Historical auction house chart |
 | `DIM_CATEGORIES` | dbt mart | English category names for the historical category chart and slicer |
-| `Top100_Comparison` | Entered in Power BI (import) | Labels for the two bars in the Top 100 comparison chart |
 
 There is one relationship: `FCT_HISTORICAL_CATEGORY_PERFORMANCE[MAIN_CATEGORY_ID]` → `DIM_CATEGORIES[CATEGORY_ID]`.
 The historical data was collected from Auctionet's Swedish website, so category names are matched by ID to show the English names used elsewhere.
